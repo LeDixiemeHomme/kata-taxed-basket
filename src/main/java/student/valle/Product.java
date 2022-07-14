@@ -15,6 +15,8 @@ public class Product {
     public Double calculateTaxedPrice() {
         if (types.contains(ProductType.BOOK)) return new Amount( price + (price * 10.00/100)).getRoundedValue();
 
-        return price;
+        if (types.contains(ProductType.BASIC_NECESSITIES)) return new Amount(price).getRoundedValue();
+
+        return new Amount(price + (price * 20.00/100)).getRoundedValue();
     }
 }
