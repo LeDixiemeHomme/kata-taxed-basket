@@ -23,6 +23,8 @@ public class Product {
             return new Amount(price).getRoundedValue();
         }
 
+        if (types.contains(ProductType.IMPORTED)) return new Amount(price + (price * 5.00/100) + (price * 20.00/100)).getRoundedValue();
+
         return new Amount(price + (price * 20.00/100)).getRoundedValue();
     }
 }
