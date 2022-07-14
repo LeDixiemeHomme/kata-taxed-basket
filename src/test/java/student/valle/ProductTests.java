@@ -33,7 +33,9 @@ class ProductTests {
     @Test
     void getTaxedImportedBasicNecessitiesProduct() {
         Product product = Product.builder().name("drug").types(Arrays.asList(ProductType.BASIC_NECESSITIES, ProductType.IMPORTED)).price(10.00).build();
+        Product product2 = Product.builder().name("drug").types(Arrays.asList(ProductType.BASIC_NECESSITIES, ProductType.IMPORTED)).price(25.00).build();
         assertEquals(10.50, product.calculateTaxedPrice());
+        assertEquals(26.25, product2.calculateTaxedPrice());
     }
 
 }
