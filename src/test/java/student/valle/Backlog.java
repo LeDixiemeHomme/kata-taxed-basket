@@ -31,10 +31,6 @@ class Backlog {
     }
 
     @Test
-    void getRoundedAmountWithBetween6And9() {
-    }
-
-    @Test
     void getAmountOfBasketWithNoProduct() {
     }
 

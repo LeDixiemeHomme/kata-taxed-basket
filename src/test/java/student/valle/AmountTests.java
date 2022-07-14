@@ -24,4 +24,10 @@ class AmountTests {
         assertEquals(10.05, amount.getRoundedValue());
     }
 
+    @Test
+    void getRoundedAmountWithBetween6And9() {
+        Amount amount = new Amount(10.06);
+        assertEquals(11.00, amount.getRoundedValue());
+    }
+
 }
