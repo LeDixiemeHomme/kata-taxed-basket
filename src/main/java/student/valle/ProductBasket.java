@@ -13,7 +13,6 @@ public class ProductBasket {
     }
 
     public Double calculateTaxedAmount() {
-        if (!this.productList.isEmpty()) return this.productList.get(0).calculateTaxedPrice();
-        return 0.0;
+        return productList.stream().mapToDouble(Product::calculateTaxedPrice).sum();
     }
 }
