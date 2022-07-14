@@ -13,7 +13,10 @@ public class Product {
     private String name;
 
     public Double calculateTaxedPrice() {
-        if (types.contains(ProductType.BOOK)) return new Amount( price + (price * 10.00/100)).getRoundedValue();
+        if (types.contains(ProductType.BOOK)) {
+            if (types.contains(ProductType.IMPORTED)) return new Amount(price + (price * 5.00/100) + (price * 10.00 / 100)).getRoundedValue();
+            return new Amount(price + (price * 10.00 / 100)).getRoundedValue();
+        }
 
         if (types.contains(ProductType.BASIC_NECESSITIES)) {
             if (types.contains(ProductType.IMPORTED)) return new Amount(price + (price * 5.00/100)).getRoundedValue();
