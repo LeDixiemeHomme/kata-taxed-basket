@@ -8,26 +8,28 @@ class AmountTests {
 
     @Test
     void getRoundedAmountWith0() {
-        Amount amount = new Amount(10.00);
-        assertEquals(10.00, amount.getRoundedValue());
+        assertEquals(10.00, new Amount(10.00).getRoundedValue());
     }
 
     @Test
     void getRoundedAmountWithBetween1And4() {
-        Amount amount = new Amount(10.01);
-        assertEquals(10.05, amount.getRoundedValue());
+        assertEquals(10.05, new Amount(10.01).getRoundedValue());
+        assertEquals(10.05, new Amount(10.02).getRoundedValue());
+        assertEquals(10.05, new Amount(10.03).getRoundedValue());
+        assertEquals(10.05, new Amount(10.04).getRoundedValue());
     }
 
     @Test
     void getRoundedAmountWith5() {
-        Amount amount = new Amount(10.05);
-        assertEquals(10.05, amount.getRoundedValue());
+        assertEquals(10.05, new Amount(10.05).getRoundedValue());
     }
 
     @Test
     void getRoundedAmountWithBetween6And9() {
-        Amount amount = new Amount(10.06);
-        assertEquals(11.00, amount.getRoundedValue());
+        assertEquals(11.00, new Amount(10.06).getRoundedValue());
+        assertEquals(11.00, new Amount(10.07).getRoundedValue());
+        assertEquals(11.00, new Amount(10.08).getRoundedValue());
+        assertEquals(11.00, new Amount(10.09).getRoundedValue());
     }
 
 }
