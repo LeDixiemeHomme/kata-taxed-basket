@@ -5,9 +5,6 @@ import org.junit.jupiter.api.Test;
 
 @Disabled
 class Backlog {
-    @Test
-    void getTaxedImportedRegularProduct() {
-    }
 
     @Test
     void getAmountOfBasketWithNoProduct() {
