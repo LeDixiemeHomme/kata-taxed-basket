@@ -13,6 +13,8 @@ public class Product {
     private String name;
 
     public Double calculateTaxedPrice() {
+        if (types.contains(ProductType.BOOK)) return new Amount( price + (price * 10.00/100)).getRoundedValue();
+
         return price;
     }
 }
