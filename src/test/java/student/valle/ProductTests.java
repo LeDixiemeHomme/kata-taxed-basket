@@ -38,4 +38,12 @@ class ProductTests {
         assertEquals(26.25, product2.calculateTaxedPrice());
     }
 
+    @Test
+    void getTaxedImportedBookProduct() {
+        Product product = Product.builder().name("book").types(Arrays.asList(ProductType.BOOK, ProductType.IMPORTED)).price(10.00).build();
+        Product product2 = Product.builder().name("book").types(Arrays.asList(ProductType.BOOK, ProductType.IMPORTED)).price(25.00).build();
+        assertEquals(11.50, product.calculateTaxedPrice());
+        assertEquals(28.75, product2.calculateTaxedPrice());
+    }
+
 }

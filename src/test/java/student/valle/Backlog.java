@@ -5,11 +5,6 @@ import org.junit.jupiter.api.Test;
 
 @Disabled
 class Backlog {
-
-    @Test
-    void getTaxedImportedBookProduct() {
-    }
-
     @Test
     void getTaxedImportedRegularProduct() {
     }
