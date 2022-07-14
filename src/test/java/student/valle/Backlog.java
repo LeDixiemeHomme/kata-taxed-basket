@@ -31,10 +31,6 @@ class Backlog {
     }
 
     @Test
-    void getRoundedAmountWith5() {
-    }
-
-    @Test
     void getRoundedAmountWithBetween6And9() {
     }
 

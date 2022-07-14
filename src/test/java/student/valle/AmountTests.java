@@ -18,4 +18,10 @@ class AmountTests {
         assertEquals(10.05, amount.getRoundedValue());
     }
 
+    @Test
+    void getRoundedAmountWith5() {
+        Amount amount = new Amount(10.05);
+        assertEquals(10.05, amount.getRoundedValue());
+    }
+
 }
