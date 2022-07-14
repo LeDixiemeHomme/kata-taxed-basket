@@ -20,8 +20,8 @@ public class Amount {
         int integerPart = Integer.parseInt(splitValue.get(0));
         int decimalPart = Integer.parseInt(splitValue.get(1).substring(0,1));
 
-        if (decimalPart >= 1 && decimalPart <= 4) return (integerPart + 0.5) / 10.00;
-        if (decimalPart >= 6 && decimalPart <= 9) return integerPart / 10.00 + 1;
+        if (decimalPart >= 1 && decimalPart <= 4) return Double.parseDouble(df.format((integerPart + 0.5) / 10.00));
+        if (decimalPart >= 6 && decimalPart <= 9) return Double.parseDouble(df.format(integerPart / 10.00 + 1));
 
         return this.value;
     }
