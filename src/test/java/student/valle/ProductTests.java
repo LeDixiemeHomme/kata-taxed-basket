@@ -30,4 +30,10 @@ class ProductTests {
         assertEquals(30.00, product2.calculateTaxedPrice());
     }
 
+    @Test
+    void getTaxedImportedBasicNecessitiesProduct() {
+        Product product = Product.builder().name("drug").types(Arrays.asList(ProductType.BASIC_NECESSITIES, ProductType.IMPORTED)).price(10.00).build();
+        assertEquals(10.50, product.calculateTaxedPrice());
+    }
+
 }
