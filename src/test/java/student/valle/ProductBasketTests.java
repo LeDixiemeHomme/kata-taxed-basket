@@ -22,4 +22,13 @@ class ProductBasketTests {
 
         assertEquals(27.50, productBasket.calculateTaxedAmount());
     }
+
+    @Test
+    void getAmountOfBasketWithTwoProducts() {
+        Product product = Product.builder().name("book").types(Arrays.asList(ProductType.BOOK)).price(10.00).build();
+        Product product2 = Product.builder().name("book").types(Arrays.asList(ProductType.BOOK)).price(25.00).build();
+        ProductBasket productBasket = new ProductBasket(Arrays.asList(product, product2));
+
+        assertEquals(38.50, productBasket.calculateTaxedAmount());
+    }
 }
