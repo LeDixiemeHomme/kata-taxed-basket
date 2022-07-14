@@ -13,18 +13,18 @@ public class Product {
     private String name;
 
     public Double calculateTaxedPrice() {
+        Amount refAmount;
+
         if (types.contains(ProductType.BOOK)) {
-            if (types.contains(ProductType.IMPORTED)) return new Amount(price + (price * 5.00/100) + (price * 10.00 / 100)).getRoundedValue();
-            return new Amount(price + (price * 10.00 / 100)).getRoundedValue();
+            refAmount = new Amount(price + (price * 10.00 / 100));
+        } else if (types.contains(ProductType.BASIC_NECESSITIES)) {
+            refAmount = new Amount(price);
+        } else {
+            refAmount = new Amount(price + (price * 20.00/100));
         }
 
-        if (types.contains(ProductType.BASIC_NECESSITIES)) {
-            if (types.contains(ProductType.IMPORTED)) return new Amount(price + (price * 5.00/100)).getRoundedValue();
-            return new Amount(price).getRoundedValue();
-        }
+        if (types.contains(ProductType.IMPORTED)) return refAmount.getRoundedValue() + new Amount(price * 5.00 / 100).getRoundedValue();
 
-        if (types.contains(ProductType.IMPORTED)) return new Amount(price + (price * 5.00/100) + (price * 20.00/100)).getRoundedValue();
-
-        return new Amount(price + (price * 20.00/100)).getRoundedValue();
+        return refAmount.getRoundedValue();
     }
 }
