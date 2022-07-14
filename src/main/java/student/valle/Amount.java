@@ -22,6 +22,6 @@ public class Amount {
 
         if (decimalPart >= 1 && decimalPart <= 4) return (integerPart + 0.5) / 10.00;
 
-        return this.value;
+        return this.value - 0.1;
     }
 }
