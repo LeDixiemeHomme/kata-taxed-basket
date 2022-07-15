@@ -1,10 +1,13 @@
 package student.valle;
 
+import lombok.NonNull;
+
 import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.List;
 
 public class Amount {
+    @NonNull
     private final Double value;
 
     public Amount(Double value) {
@@ -20,6 +23,7 @@ public class Amount {
         int integerPart = Integer.parseInt(splitValue.get(0));
         int firstDecimalPart = Integer.parseInt(splitValue.get(1).substring(0,1));
         int lastDecimalPart;
+
         try {
             lastDecimalPart = Integer.parseInt(splitValue.get(1).substring(1,2));
         } catch (StringIndexOutOfBoundsException stringIndexOutOfBoundsException) {

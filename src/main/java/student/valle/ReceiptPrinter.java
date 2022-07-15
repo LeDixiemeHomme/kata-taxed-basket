@@ -1,10 +1,12 @@
 package student.valle;
 
 import lombok.Getter;
+import lombok.NonNull;
 
 @Getter
 public class ReceiptPrinter {
-    private ProductBasket productBasket;
+    @NonNull
+    private final ProductBasket productBasket;
 
     public ReceiptPrinter(ProductBasket productBasket) {
         this.productBasket = productBasket;
@@ -19,14 +21,7 @@ public class ReceiptPrinter {
     }
 
     private String printOneProduct(Product product) {
-        Integer quantityRef;
-        if (product.getQuantity() != null) {
-            quantityRef = product.getQuantity();
-        } else {
-            quantityRef = 1;
-        }
-
-        return quantityRef.toString() + " " + product.getName() + " à " + product.getPrice() + " : " + product.calculateTaxedPrice() + "\n";
+        return product.getQuantity() + " " + product.getName() + " à " + product.getPrice() + " : " + product.calculateTaxedPrice() + "\n";
     }
 
     private String printProductBasket(ProductBasket productBasket) {

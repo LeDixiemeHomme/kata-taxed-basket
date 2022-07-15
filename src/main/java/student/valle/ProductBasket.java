@@ -1,11 +1,13 @@
 package student.valle;
 
 import lombok.Getter;
+import lombok.NonNull;
 
 import java.util.List;
 
 @Getter
 public class ProductBasket {
+    @NonNull
     private final List<Product> productList;
 
     public ProductBasket(List<Product> productList) {

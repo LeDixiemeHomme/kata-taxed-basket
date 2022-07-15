@@ -2,16 +2,21 @@ package student.valle;
 
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NonNull;
 
 import java.util.List;
 
 @Builder
 @Getter
 public class Product {
+    @NonNull
     private Double price;
+    @NonNull
     private List<ProductType> types;
+    @NonNull
     private String name;
-    private Integer quantity;
+    @NonNull
+    private final Integer quantity;
 
     private Double getTvaByProductType(List<ProductType> types) {
         if (types.contains(ProductType.BASIC_NECESSITIES)) {
@@ -35,25 +40,16 @@ public class Product {
         Double tva = this.getTvaByProductType(this.types);
         Double ti = this.getTiByProductType(this.types);
 
-        Integer quantityRef;
-        if (this.quantity != null) {
-            quantityRef = this.quantity;
-        } else {
-            quantityRef = 1;
-        }
-
         Double unitPrice = this.price + new Amount(this.price * tva).getRoundedValue() + new Amount(this.price * ti).getRoundedValue();
 
-        return new Amount(unitPrice * quantityRef).getValue();
+        return new Amount(unitPrice * this.quantity).getValue();
     }
 
     public Double calculateTaxeOnly() {
-        Integer quantityRef;
-        if (quantity != null) {
-            quantityRef = this.quantity;
-        } else {
-            quantityRef = 1;
-        }
-        return this.calculateTaxedPrice() - this.price * quantityRef;
+        return this.calculateTaxedPrice() - this.amountTaxeFree();
+    }
+
+    private Double amountTaxeFree() {
+        return this.price * this.quantity;
     }
 }
