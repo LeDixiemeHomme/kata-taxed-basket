@@ -77,4 +77,10 @@ class ProductTests {
         Product product = Product.builder().name("CD").types(Arrays.asList()).price(14.99).quantity(1).build();
         assertEquals(17.99, product.calculateTaxedPrice());
     }
+
+    @Test
+    void getAmountOfThreeChocolateBar() {
+        Product product = Product.builder().name("Chocolate bar").types(Arrays.asList(ProductType.BASIC_NECESSITIES)).price(0.85).quantity(3).build();
+        assertEquals(2.55, product.calculateTaxedPrice());
+    }
 }
