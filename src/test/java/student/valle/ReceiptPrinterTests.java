@@ -14,10 +14,9 @@ public class ReceiptPrinterTests {
 
         ReceiptPrinter receiptPrinter = new ReceiptPrinter(productBasket);
 
-        assertEquals("\n" +
-                "Montant des taxes : 0.00\n" +
+        assertEquals("Montant des taxes : 0.0\n" +
                 "\n" +
-                "Total : 0.00", receiptPrinter.printBasketReceipt());
+                "Total : 0.0", receiptPrinter.printBasketReceipt());
     }
 
     @Test
@@ -41,7 +40,8 @@ public class ReceiptPrinterTests {
 
         ReceiptPrinter receiptPrinter = new ReceiptPrinter(productBasket);
 
-        assertEquals("2 Chocolate boxe à 10.0 : 21.0\n" +"3 Bottle of parfum à 47.5 : 178.2\n" +
+        assertEquals("2 Chocolate boxe à 10.0 : 21.0\n" +
+                "3 Bottle of parfum à 47.5 : 178.2\n" +
                 "Montant des taxes : 36.7\n" +
                 "\n" +
                 "Total : 199.2", receiptPrinter.printBasketReceipt());
