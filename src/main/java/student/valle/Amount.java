@@ -15,13 +15,19 @@ public class Amount {
         DecimalFormat df = new DecimalFormat("#.##");
         double twoDecimalDouble = Double.parseDouble(df.format(this.value));
 
-        List<String> splitValue = Arrays.asList(String.valueOf(twoDecimalDouble * 10).split("\\."));
+        List<String> splitValue = Arrays.asList(String.valueOf(twoDecimalDouble).split("\\."));
 
         int integerPart = Integer.parseInt(splitValue.get(0));
-        int decimalPart = Integer.parseInt(splitValue.get(1).substring(0,1));
+        int firstDecimalPart = Integer.parseInt(splitValue.get(1).substring(0,1));
+        int lastDecimalPart;
+        try {
+            lastDecimalPart = Integer.parseInt(splitValue.get(1).substring(1,2));
+        } catch (StringIndexOutOfBoundsException stringIndexOutOfBoundsException) {
+            lastDecimalPart = 0;
+        }
 
-        if (decimalPart >= 1 && decimalPart <= 4) return Double.parseDouble(df.format((integerPart + 0.5) / 10.00));
-        if (decimalPart >= 6 && decimalPart <= 9) return Double.parseDouble(df.format(integerPart / 10.00 + 1));
+        if (lastDecimalPart >= 1 && lastDecimalPart <= 4) return Double.parseDouble(df.format(integerPart + (firstDecimalPart / 10.00) + 0.05));
+        if (lastDecimalPart >= 6 && lastDecimalPart <= 9) return Double.parseDouble(df.format(integerPart + (firstDecimalPart / 10.00) + 0.1));
 
         return this.value;
     }
