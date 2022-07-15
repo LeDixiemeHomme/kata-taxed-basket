@@ -11,6 +11,7 @@ public class Product {
     private Double price;
     private List<ProductType> types;
     private String name;
+    private Integer quantity;
 
     public Double calculateTaxedPrice() {
         Amount refAmount;
