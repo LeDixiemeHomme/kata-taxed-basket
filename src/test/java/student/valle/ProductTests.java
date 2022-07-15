@@ -60,4 +60,10 @@ class ProductTests {
         assertEquals(10.00, product.calculateTaxedPrice());
     }
 
+    @Test
+    void getAmountWithTwoQuantity() {
+        Product product = Product.builder().name("drug").types(Arrays.asList(ProductType.BASIC_NECESSITIES)).price(10.00).quantity(2).build();
+        assertEquals(20.00, product.calculateTaxedPrice());
+    }
+
 }
