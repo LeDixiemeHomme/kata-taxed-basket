@@ -26,10 +26,10 @@ class AmountTests {
 
     @Test
     void getRoundedAmountWithBetween6And9() {
-        assertEquals(11.00, new Amount(10.06).getRoundedValue());
-        assertEquals(11.00, new Amount(10.07).getRoundedValue());
-        assertEquals(11.00, new Amount(10.08).getRoundedValue());
-        assertEquals(11.00, new Amount(10.09).getRoundedValue());
+        assertEquals(10.10, new Amount(10.06).getRoundedValue());
+        assertEquals(10.10, new Amount(10.07).getRoundedValue());
+        assertEquals(10.10, new Amount(10.08).getRoundedValue());
+        assertEquals(10.10, new Amount(10.09).getRoundedValue());
     }
 
 }

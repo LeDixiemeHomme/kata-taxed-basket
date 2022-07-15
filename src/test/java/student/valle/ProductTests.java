@@ -83,4 +83,40 @@ class ProductTests {
         Product product = Product.builder().name("Chocolate bar").types(Arrays.asList(ProductType.BASIC_NECESSITIES)).price(0.85).quantity(3).build();
         assertEquals(2.55, product.calculateTaxedPrice());
     }
+
+    @Test
+    void getAmountOfTwoImportedChocolateBoxes() {
+        Product product = Product.builder().name("Chocolate boxe").types(Arrays.asList(ProductType.BASIC_NECESSITIES, ProductType.IMPORTED)).price(10.00).quantity(2).build();
+        assertEquals(21.00, product.calculateTaxedPrice());
+    }
+
+    @Test
+    void getAmountOfThreeImportedBottleOfParfum() {
+        Product product = Product.builder().name("Bottle of parfum").types(Arrays.asList(ProductType.IMPORTED)).price(47.50).quantity(3).build();
+        assertEquals(178.2, product.calculateTaxedPrice());
+    }
+
+    @Test
+    void getAmountOfTwoImportedBottleOfParfum() {
+        Product product = Product.builder().name("Bottle of parfum").types(Arrays.asList(ProductType.IMPORTED)).price(27.99).quantity(2).build();
+        assertEquals(69.98, product.calculateTaxedPrice());
+    }
+
+    @Test
+    void getAmountOfOneBottleOfParfum() {
+        Product product = Product.builder().name("Bottle of parfum").types(Arrays.asList()).price(18.99).quantity(1).build();
+        assertEquals(22.79, product.calculateTaxedPrice());
+    }
+
+    @Test
+    void getAmountOfThreeBoxesOfHeadacheDrug() {
+        Product product = Product.builder().name("Boxe of headache drug").types(Arrays.asList(ProductType.BASIC_NECESSITIES)).price(9.75).quantity(3).build();
+        assertEquals(29.25, product.calculateTaxedPrice());
+    }
+
+    @Test
+    void getAmountOfTwoImportedChocolateBoxesBis() {
+        Product product = Product.builder().name("Chocolate boxe").types(Arrays.asList(ProductType.BASIC_NECESSITIES, ProductType.IMPORTED)).price(11.25).quantity(2).build();
+        assertEquals(23.70, product.calculateTaxedPrice());
+    }
 }
