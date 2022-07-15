@@ -31,4 +31,11 @@ class ProductBasketTests {
 
         assertEquals(38.50, productBasket.calculateTaxedAmount());
     }
+
+    @Test
+    void getAmountOfBasketTaxesWithNoProduct() {
+        ProductBasket productBasket = new ProductBasket(Arrays.asList());
+
+        assertEquals(0.0, productBasket.calculateTaxesOnly());
+    }
 }
