@@ -18,6 +18,6 @@ public class ProductBasket {
 
     public Double calculateTaxesOnly() {
         if (productList.isEmpty()) return 0.0;
-        return productList.get(0).calculateTaxedPrice() - productList.get(0).getPrice();
+        return this.calculateTaxedAmount() - productList.stream().mapToDouble(Product::getPrice).sum() ;
     }
 }
