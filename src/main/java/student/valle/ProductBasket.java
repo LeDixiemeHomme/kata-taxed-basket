@@ -17,6 +17,7 @@ public class ProductBasket {
     }
 
     public Double calculateTaxesOnly() {
-        return 0.0;
+        if (productList.isEmpty()) return 0.0;
+        return productList.get(0).calculateTaxedPrice() - productList.get(0).getPrice();
     }
 }
