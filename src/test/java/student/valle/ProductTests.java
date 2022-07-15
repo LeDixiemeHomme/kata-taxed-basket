@@ -72,4 +72,9 @@ class ProductTests {
         assertEquals(27.48, product.calculateTaxedPrice());
     }
 
+    @Test
+    void getAmountOfOneCD() {
+        Product product = Product.builder().name("CD").types(Arrays.asList()).price(14.99).quantity(1).build();
+        assertEquals(17.99, product.calculateTaxedPrice());
+    }
 }
