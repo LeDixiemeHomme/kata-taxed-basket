@@ -2,6 +2,8 @@ package student.valle;
 
 import lombok.Getter;
 
+import java.util.Arrays;
+
 @Getter
 public class ReceiptPrinter {
     private ProductBasket productBasket;
@@ -17,7 +19,7 @@ public class ReceiptPrinter {
                 "\n" +
                 "Total : 0.00";
 
-        return this.printOneProduct(this.productBasket.getProductList().get(0)) +
+        return this.printProductBasket() +
                 "Montant des taxes : " + this.productBasket.calculateTaxesOnly() + "\n" +
                 "\n" +
                 "Total : " + this.productBasket.calculateTaxedAmount();
@@ -32,5 +34,11 @@ public class ReceiptPrinter {
         }
 
         return quantityRef.toString() + " " + product.getName() + " à " + product.getPrice() + " : " + product.calculateTaxedPrice() + "\n";
+    }
+
+    private String printProductBasket() {
+        StringBuilder sb = new StringBuilder();
+        this.productBasket.getProductList().forEach(product -> sb.append(this.printOneProduct(product)));
+        return sb.toString();
     }
 }
