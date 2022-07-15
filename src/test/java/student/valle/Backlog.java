@@ -5,8 +5,4 @@ import org.junit.jupiter.api.Test;
 
 @Disabled
 class Backlog {
-
-    @Test
-    void printReceiptWithTwoProducts() {
-    }
 }
