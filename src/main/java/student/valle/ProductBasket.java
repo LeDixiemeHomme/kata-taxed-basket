@@ -15,4 +15,8 @@ public class ProductBasket {
     public Double calculateTaxedAmount() {
         return productList.stream().mapToDouble(Product::calculateTaxedPrice).sum();
     }
+
+    public Double calculateTaxesOnly() {
+        return 0.0;
+    }
 }
