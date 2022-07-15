@@ -7,6 +7,14 @@ import org.junit.jupiter.api.Test;
 class Backlog {
 
     @Test
+    void getAmountWithOneQuantity() {
+    }
+
+    @Test
+    void getAmountWithTwoQuantity() {
+    }
+
+    @Test
     void printReceiptWithNoProduct() {
     }
 
