@@ -24,7 +24,7 @@ public class Product {
         Amount refAmount;
 
         if (types.contains(ProductType.BOOK)) {
-            refAmount = new Amount(price + (price * 10.00 / 100));
+            refAmount = new Amount(price + new Amount(price * 10.00 / 100).getRoundedValue());
         } else if (types.contains(ProductType.BASIC_NECESSITIES)) {
             refAmount = new Amount(price);
         } else {
@@ -33,7 +33,7 @@ public class Product {
 
         if (types.contains(ProductType.IMPORTED)) return refAmount.getRoundedValue() + new Amount(price * 5.00 / 100).getRoundedValue();
 
-        return refAmount.getRoundedValue() * quantityRef;
+        return refAmount.getValue() * quantityRef;
     }
 
     public Double calculateTaxeOnly() {

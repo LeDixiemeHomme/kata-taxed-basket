@@ -25,4 +25,9 @@ public class Amount {
 
         return this.value;
     }
+
+    public Double getValue() {
+        DecimalFormat df = new DecimalFormat("#.##");
+        return Double.parseDouble(df.format(this.value));
+    }
 }
