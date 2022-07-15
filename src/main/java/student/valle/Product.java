@@ -14,6 +14,13 @@ public class Product {
     private Integer quantity;
 
     public Double calculateTaxedPrice() {
+        Integer quantityRef;
+        if (quantity != null) {
+            quantityRef = this.quantity;
+        } else {
+            quantityRef = 1;
+        }
+
         Amount refAmount;
 
         if (types.contains(ProductType.BOOK)) {
@@ -26,10 +33,16 @@ public class Product {
 
         if (types.contains(ProductType.IMPORTED)) return refAmount.getRoundedValue() + new Amount(price * 5.00 / 100).getRoundedValue();
 
-        return refAmount.getRoundedValue();
+        return refAmount.getRoundedValue() * quantityRef;
     }
 
     public Double calculateTaxeOnly() {
-        return this.calculateTaxedPrice() - this.price;
+        Integer quantityRef;
+        if (quantity != null) {
+            quantityRef = this.quantity;
+        } else {
+            quantityRef = 1;
+        }
+        return this.calculateTaxedPrice() - this.price * quantityRef;
     }
 }
