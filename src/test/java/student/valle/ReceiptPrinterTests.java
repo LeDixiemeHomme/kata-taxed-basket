@@ -22,14 +22,14 @@ public class ReceiptPrinterTests {
 
     @Test
     void printReceiptWithOneProduct() {
-        Product product = Product.builder().name("book").types(Arrays.asList(ProductType.BOOK)).price(25.00).build();
+        Product product = Product.builder().name("Boxe of headache drug").types(Arrays.asList(ProductType.BASIC_NECESSITIES)).price(9.75).quantity(3).build();
         ProductBasket productBasket = new ProductBasket(Arrays.asList(product));
 
         ReceiptPrinter receiptPrinter = new ReceiptPrinter(productBasket);
 
-        assertEquals("1 book à 25.00 : 27.50\n" +
-                "Montant des taxes : 2.50\n" +
+        assertEquals("3 Boxe of headache drug à 9.75 : 29.25\n" +
+                "Montant des taxes : 0.0\n" +
                 "\n" +
-                "Total : 27.50", receiptPrinter.printBasketReceipt());
+                "Total : 29.25", receiptPrinter.printBasketReceipt());
     }
 }
