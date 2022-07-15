@@ -11,6 +11,9 @@ public class ReceiptPrinter {
     }
 
     public String printBasketReceipt() {
-        return "Empty basket";
+        return "\n" +
+                "Montant des taxes : 0.00\n" +
+                "\n" +
+                "Total : 0.00";
     }
 }
