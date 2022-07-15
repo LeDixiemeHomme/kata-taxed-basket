@@ -14,6 +14,9 @@ public class ReceiptPrinterTests {
 
         ReceiptPrinter receiptPrinter = new ReceiptPrinter(productBasket);
 
-        assertEquals("Empty basket", receiptPrinter.printBasketReceipt());
+        assertEquals("\n" +
+                "Montant des taxes : 0.00\n" +
+                "\n" +
+                "Total : 0.00", receiptPrinter.printBasketReceipt());
     }
 }
