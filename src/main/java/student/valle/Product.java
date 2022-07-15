@@ -27,4 +27,8 @@ public class Product {
 
         return refAmount.getRoundedValue();
     }
+
+    public Double calculateTaxeOnly() {
+        return this.calculateTaxedPrice() - this.price;
+    }
 }
